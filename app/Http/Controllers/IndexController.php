@@ -69,7 +69,7 @@ class IndexController extends Controller
     public function officers()
     {
         $towns = Town::orderBy('name')->get();
-        $officers = Officers::whereTown('National')->orderBy('id','asc')->get();
+        $officers = Officers::whereTown('Laguna')->orderBy('id','asc')->get();
         return view('officers',compact('officers','towns'));
     }
 
