@@ -66,6 +66,8 @@ class DocumentController extends Controller
         $document->town_id = $request->input('town_id');
         $document->user_id = $request->input('user_id');
         $document->date_approved = $request->input('date_approved');
+        $document->tags = $request->input('tags');
+        $document->description = $request->input('description');
         if(NULL !== $request->input('is_private')){
             $is_private = $request->input('is_private');
         }else{
@@ -85,7 +87,16 @@ class DocumentController extends Controller
                 $da = new Documentauthor;
                 $da->author_id = $a;
                 $da->document_id = $document->id;
+                $da->main = 1;
                 $da->save();    
+            }
+
+            foreach ($request->input('coauthor') as $key => $ca) {
+                $da2 = new Documentauthor;
+                $da2->author_id = $ca;
+                $da2->document_id = $document->id;
+                $da2->main = 0;
+                $da2->save();
             }
             return redirect('admin/documents');
         }

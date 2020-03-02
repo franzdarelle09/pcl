@@ -29,7 +29,13 @@
       <![endif]-->
 </head>
 <body>
-
+<style type="text/css">
+  @media (min-width: 1200px){
+    .container {
+        width: 1800px !important;
+    }
+  }
+</style>
 <!--Wrapper Start-->
 <div class="wrapper"> 
   <!--Header Start-->
@@ -96,11 +102,12 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead>
                             <tr>
-                              <th>Document Name</th>                      
+                              <th>Document Number</th>
+                              <th style="width: 350px;">Title</th>                      
                               <th>Author</th>
                               <th>Type</th>
                               <th>Date Approved</th>
-                              <th>File</th>
+                              <th>Tags</th>
                                                
                             </tr>
                           </thead>
@@ -109,7 +116,8 @@
                             @foreach($documents as $document)
                               
                             <tr id="row{{$document->id}}">
-                              <td>{{$document->name}}</td>
+                              <td><a href="/storage/documents/{{$document->file}}" target="_blank">{{$document->name}}</a></td>
+                              <td style="width: 350px;">{{$document->description}}</td>
                               <td>
                                   
                                   <?php 
@@ -128,7 +136,7 @@
                               </td>
                               <td>{{$document->type->name}}</td>
                               <td>{{$document->date_approved}}</td>
-                              <td><a href="/storage/documents/{{$document->file}}" target="_blank">View</a></td>
+                              <td>{{$document->tags}}</td>
                               
                             </tr>
                             @endforeach

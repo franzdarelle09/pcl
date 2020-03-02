@@ -15,15 +15,55 @@
         <form method="POST" enctype="multipart/form-data" action="/admin/documents/store">
             {{ csrf_field() }}
             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+
+            @if(is_null(Auth::user()->town_id))
+              <div class="form-group">
+                  <label for="category">Municipality</label>
+                  <select name="town_id" class="form-control">
+                    @foreach($towns as $town)
+                      <option value="{{$town->id}}">{{$town->name}}</option>
+                    @endforeach
+                  </select>
+                                
+               </div>
+             @else
+              <input type="hidden" name="town_id" value="{{Auth::user()->town_id}}">
+
+             @endif
+
             <div class="form-group">
-              <label for="event_name">Document Name</label>
+              <label for="event_name">Resolution / Ordinance Number</label>
               <input type="text" name="name" class="form-control" id="name" autocomplete="off" required>
+                            
+            </div>
+
+            <div class="form-group">
+              <label for="event_name">Resolution / Ordinance Title</label>
+              <!-- <input type="text" name="name" class="form-control" id="name" autocomplete="off" required> -->
+              <textarea style="width: 100%; height: 250px;" name="description" id="description"></textarea>
+                            
+            </div>
+
+            <div class="form-group">
+              <label for="event_name">Tags</label>
+              <input type="text" name="tags" class="form-control" id="tags" autocomplete="off" required>
                             
             </div>
            
             <div class="form-group">
               <label for="event_name">Author</label>
               <select name="author[]" id="author">
+                  <option value=""></option>
+                  @foreach($authors as $a)
+                  <option value="{{$a->id}}">{{$a->name}}</option>
+                  @endforeach
+              </select>
+                            
+            </div>
+
+            <div class="form-group">
+              <label for="event_name">Co Author</label>
+              <select name="coauthor[]" id="coauthor">
                   <option value=""></option>
                   @foreach($authors as $a)
                   <option value="{{$a->id}}">{{$a->name}}</option>
@@ -47,20 +87,7 @@
                               
              </div>
 
-            @if(is_null(Auth::user()->town_id))
-              <div class="form-group">
-                  <label for="category">Municipality</label>
-                  <select name="town_id" class="form-control">
-                    @foreach($towns as $town)
-                      <option value="{{$town->id}}">{{$town->name}}</option>
-                    @endforeach
-                  </select>
-                                
-               </div>
-             @else
-              <input type="hidden" name="town_id" value="{{Auth::user()->town_id}}">
-
-             @endif
+            
 
              <div class="form-group">
                 <label for="image">Document (PDF Only)</label><br>
@@ -86,6 +113,10 @@
   <script src="/js/selectize.min.js"></script>
   <script type="text/javascript">
     $('#author').selectize({
+        maxItems: 5
+    });
+
+    $('#coauthor').selectize({
         maxItems: 5
     });
   </script>
