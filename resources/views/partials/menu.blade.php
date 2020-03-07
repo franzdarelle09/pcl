@@ -53,7 +53,7 @@
                       <li><a href="/pclofficers/Laguna">Laguna</a></li>
                       <li><a href="/pclofficers/National">National</a></li>
                       @foreach($towns as $town)
-                        <li><a href="/pclofficers/{{$town->id}}">{{$town->name}}</a></li>
+                        <li><a href="/pclofficers/{{$town->name}}">{{$town->name}}</a></li>
                       @endforeach                  
                       
                   </ul>
