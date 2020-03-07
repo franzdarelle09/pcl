@@ -66,10 +66,10 @@ class IndexController extends Controller
         return view('news_details',compact('n','towns'));
     }
 
-    public function officers()
+    public function officers($location = "Laguna")
     {
         $towns = Town::orderBy('name')->get();
-        $officers = Officers::whereTown('Laguna')->orderBy('id','asc')->get();
+        $officers = Officers::whereTown($location)->orderBy('id','asc')->get();
         return view('officers',compact('officers','towns'));
     }
 

@@ -33,12 +33,10 @@ class OfficerController extends Controller
 
             $image = Image::make(public_path('storage/officers/'.$filaNameToStore))->fit(360,420);
             $image->save();
-
-
         }else{
             $filaNameToStore = '';
         }
-
+        
         $o = ($request->input('officer_id') !== NULL)  ? Officers::findOrFail($request->officer_id) : new Officers;
         $o->id = $request->input('officer_id');
         $o->position = $request->input('position');
@@ -52,6 +50,23 @@ class OfficerController extends Controller
         if($o->save()){
             return redirect('/admin/officers');
         }
+    }
+
+    public function edit($id)
+    {
+        $officer = Officers::find($id);
+         $towns = Town::orderBy('name')->get();
+        if(NULL !== $officer)
+            return view('admin.officer_edit',compact('officer','towns'));
+        else
+            return redirect('admin/officers');
+    }
+
+    public function delete(Request $request)
+    {
+        $officer_id = $request->input('officer_id');
+        $officer = Officers::find($officer_id);
+        $officer->delete();
     }
 
 }

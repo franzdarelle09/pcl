@@ -47,7 +47,14 @@
               
               <li><a href="#">Events</a></li>
               <li><a href="/pclofficers">PCL Officers</a></li>
-              
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PCL Officers <span class="caret"></span></a>
+                  <ul class="dropdown-menu" >
+                    
+                      <li><a href="/pclofficers/Laguna">Laguna</a></li>
+                      <li><a href="/pclofficers/National">National</a></li>
+                      
+                  </ul>
+              </li>
             </ul>
             <ul class="navbar-right">
               <li class="search-form" style="visibility: hidden;">

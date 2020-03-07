@@ -59,7 +59,7 @@
             }
       });
       $('#dataTable').DataTable();
-      $(".delete").on("click",function(e){
+      $("body").delegate(".delete","click",function(e){
           officer_id = $(this).attr('officer-id');
           $.ajax({
             type:"POST",
@@ -71,7 +71,11 @@
           }); 
       });
 
-      $(".edit").on("click",function(){
+      // $(".edit").on("click",function(){
+      //     officer_id = $(this).attr('officer-id');
+      //     window.location = "/admin/officers/edit/"+officer_id;
+      // });
+      $("body").delegate(".edit","click",function(){
           officer_id = $(this).attr('officer-id');
           window.location = "/admin/officers/edit/"+officer_id;
       });

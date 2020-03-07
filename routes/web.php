@@ -44,11 +44,13 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/admin/officers','OfficerController@index');
 	Route::get('/admin/officers/create','OfficerController@create');
 	Route::post('/admin/officers/store','OfficerController@store');
+	Route::post('/admin/officers/delete','OfficerController@delete');
+	Route::get('/admin/officers/edit/{id}','OfficerController@edit');
 
 	Route::get('/news','IndexController@news');
 	Route::get('/news/{id}','IndexController@news_details');
 
-	Route::get('/pclofficers','IndexController@officers');
+	Route::get('/pclofficers/{location?}','IndexController@officers');
 	Route::get('/councilors/{town?}/{type?}','IndexController@councilors');
 
 
