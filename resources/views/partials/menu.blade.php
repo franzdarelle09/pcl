@@ -48,10 +48,13 @@
               <li><a href="#">Events</a></li>
               <li><a href="/pclofficers">PCL Officers</a></li>
               <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PCL Officers <span class="caret"></span></a>
-                  <ul class="dropdown-menu" >
+                  <ul class="dropdown-menu" style="height: 400px; overflow-y: scroll; overflow-x: hidden;">
                     
                       <li><a href="/pclofficers/Laguna">Laguna</a></li>
                       <li><a href="/pclofficers/National">National</a></li>
+                      @foreach($towns as $town)
+                        <li><a href="/pclofficers/{{$town->id}}">{{$town->name}}</a></li>
+                      @endforeach                  
                       
                   </ul>
               </li>
