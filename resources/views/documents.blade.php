@@ -124,7 +124,7 @@
                                     $count = count($document->authors);
                                     $i = 1;
                                   ?> 
-                                  @if($document->main == 1)
+                                  
                                   @foreach($document->authors as $key => $auth)
 
                                       <a href="#">{{$auth->name}}</a>
@@ -134,7 +134,7 @@
                                         endif; 
                                         $i++; ?>
                                   @endforeach
-                                  @endif
+                                  
                                   
                               </td>
                               <td>{{$document->type->name}}</td>
