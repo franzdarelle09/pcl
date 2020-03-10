@@ -106,8 +106,8 @@
           <i class="fas fa-fw fa-plus"></i>
           <span>Add Author</span></a>
       </li>
-
-        <hr class="sidebar-divider">
+      @if(Auth::user()->town_id == null)
+      <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
@@ -125,6 +125,7 @@
           <i class="fas fa-fw fa-user"></i>
           <span>Add User</span></a>
       </li>
+      @endif
        <!-- Divider -->
       <hr class="sidebar-divider">
 
