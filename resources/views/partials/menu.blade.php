@@ -46,7 +46,7 @@
               <li><a href="/news">News</a></li>
               
               <li><a href="#">Events</a></li>
-              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PCL Officers <span class="caret"></span></a>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Electives <span class="caret"></span></a>
                   <ul class="dropdown-menu" style="height: 400px; overflow-y: scroll; overflow-x: hidden;">
                     
                       <li><a href="/pclofficers/Laguna">Laguna</a></li>
