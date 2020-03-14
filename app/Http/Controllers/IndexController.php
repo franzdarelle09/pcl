@@ -91,4 +91,23 @@ class IndexController extends Controller
     }
 
 
+    public function test()
+    {
+        $id = 24;
+        $type = 0;
+        $documents = Document::whereIsPrivate(0)->whereTownId($id)->get();
+        // dd($documents);
+        
+        $town_id = $id;
+        $type_id = $type;
+
+        $towns = Town::orderBy('name')->get();
+        $types = Type::orderBy('name')->get();
+        foreach($documents as $d){
+            foreach ($d->authors as $a) {
+                echo $a->pivot->main.'<br>';
+            }
+        }
+    }
+
 }

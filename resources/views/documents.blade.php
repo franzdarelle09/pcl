@@ -119,20 +119,13 @@
                               <td><a href="/storage/documents/{{$document->file}}" target="_blank">{{$document->name}}</a></td>
                               <td style="width: 350px;">{{$document->description}}</td>
                               <td>
-                                  
-                                  <?php 
-                                    $count = count($document->authors);
-                                    $i = 1;
-                                  ?> 
+                                                
                                   
                                   @foreach($document->authors as $key => $auth)
-
+                                    @if($auth->pivot->main)
                                       <a href="#">{{$auth->name}}</a>
-                                        <?php 
-                                        if($i != $count):
-                                          echo ",";
-                                        endif; 
-                                        $i++; ?>
+                                       
+                                    @endif
                                   @endforeach
                                   
                                   

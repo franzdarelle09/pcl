@@ -113,11 +113,11 @@
   <script src="/js/selectize.min.js"></script>
   <script type="text/javascript">
     $('#author').selectize({
-        maxItems: 5
+        maxItems: 10
     });
 
     $('#coauthor').selectize({
-        maxItems: 5
+        maxItems: 10
     });
   </script>
 @endsection

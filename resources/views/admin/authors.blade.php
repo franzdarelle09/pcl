@@ -56,13 +56,13 @@
       });
       $('#dataTable').DataTable();
       $(".delete").on("click",function(e){
-          document_id = $(this).attr('document-id');
+          author_id = $(this).attr('author-id');
           $.ajax({
             type:"POST",
             url:"/admin/authors/delete",
-            data:{document_id:document_id},
+            data:{author_id:author_id},
             success: function(data){
-              $("#row"+document_id).remove();
+              $("#row"+author_id).remove();
             }
           }); 
       });

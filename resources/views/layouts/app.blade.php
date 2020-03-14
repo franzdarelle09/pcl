@@ -20,9 +20,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <!-- <body style="background: url(images/bg_login.jpg); background-repeat: no-repeat; background-size: cover;"> -->
-    <body>
+    <body id="grad" style="height: 1000px;  background-image: linear-gradient(skyblue, white) !important;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md  bg-dark navbar-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     PCL Laguna

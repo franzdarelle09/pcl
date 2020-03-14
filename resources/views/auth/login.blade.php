@@ -1,13 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+<style type="text/css">
+    #grad {
+      height: 1000px;
+      background-color: red; /* For browsers that do not support gradients */
+      background-image: linear-gradient(skyblue, white) !important; /* Standard syntax (must be last) */
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="text-center">
+                 <img src="/images/pcl_logo.png" class="text-center" style="height: 200px; margin-bottom: 50px;">
+            </div>
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header bg-dark" style="color: #fff;">{{ __('Login') }}</div>
 
                 <div class="card-body">
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

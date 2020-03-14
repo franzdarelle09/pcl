@@ -17,6 +17,8 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/documents/{id}/{type?}','IndexController@documents');
 	Route::get('/sbmembers','IndexController@sbmembers');
 
+	Route::get('/test','IndexController@test');
+
 	Route::get('/admin','DashboardController@index');
 	
 	Route::get('/admin/documents','DocumentController@index');	
@@ -28,6 +30,7 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('/admin/authors/','AuthorController@index');
 	Route::get('/admin/authors/create','AuthorController@create');
 	Route::post('/admin/authors/store','AuthorController@store');
+	Route::post('/admin/authors/delete','AuthorController@delete');
 
 	Route::get('/admin/announcement','AnnouncementController@index');	
 	Route::post('/admin/announcement/store','AnnouncementController@store');	

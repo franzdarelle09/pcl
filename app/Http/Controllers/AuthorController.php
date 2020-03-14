@@ -42,4 +42,11 @@ class AuthorController extends Controller
             return redirect('admin/authors');
         }
     }
+
+    public function delete(Request $request)
+    {
+        $author = Author::find($request->input('author_id'));
+        $author->delete();
+        echo 'deleted';
+    }
 }
